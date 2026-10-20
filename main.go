@@ -2,9 +2,13 @@ package main
 
 import (
 	"fmt"
-	// "net/http"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("bing bing")
+
+}
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello From Go")
 }
