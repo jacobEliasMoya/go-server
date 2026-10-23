@@ -3,23 +3,19 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 func main() {
-	mainScore := 0
 
-	fmt.Println(mainScore)
+	var message strings.Builder
+	fmt.Fprintln(&message, "blah blah blah")
 
-	newScore := incrementOriginal(&mainScore, 55)
+	fmt.Println(message)
 
-	fmt.Println(newScore, ">", mainScore)
+	http.HandleFunc("/", homeHandler)
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello From Go")
-}
-
-func incrementOriginal(score *int, incrimentor int) int {
-	*score = *score + incrimentor
-	return *score
 }
